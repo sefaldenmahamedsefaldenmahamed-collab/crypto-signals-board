@@ -1,0 +1,12 @@
+# إعداد النشر التلقائي على Render — Static Site (بدون خادم ولا بناء)
+# يقرأ Render هذا الملف تلقائياً عند ربط المستودع من GitHub
+services:
+  - type: web
+    name: crypto-signals-board
+    env: static
+    buildCommand: echo "site statique - لا حاجة للبناء"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
